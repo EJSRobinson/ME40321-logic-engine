@@ -1,0 +1,19 @@
+{
+  "name": "me40321-logic-engine",
+  "version": "0.0.1",
+  "description": "",
+  "main": "engine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EJSRobinson/ME40321-logic-engine.git"
+  },
+  "author": "EJSRobinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EJSRobinson/ME40321-logic-engine/issues"
+  },
+  "homepage": "https://github.com/EJSRobinson/ME40321-logic-engine#readme"
+}
