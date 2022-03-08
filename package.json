@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/EJSRobinson/ME40321-logic-engine/issues"
   },
-  "homepage": "https://github.com/EJSRobinson/ME40321-logic-engine#readme"
+  "homepage": "https://github.com/EJSRobinson/ME40321-logic-engine#readme",
+  "type": "module"
 }
