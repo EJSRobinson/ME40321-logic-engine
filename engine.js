@@ -12,7 +12,7 @@ const functionsCore = {
 
 let relations = new Relations(functionsCore);
 
-setInterval(() => {}, 1500);
+// setInterval(() => {}, 1500);
 
 //Run through relations
 //For each, check if required variables are defined
