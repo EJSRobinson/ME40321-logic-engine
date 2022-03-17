@@ -8,5 +8,8 @@ parser.add_argument('vars', type=str)
 class ct_1(Resource):
     def post(self):
         response = request.get_json()
-        result = response['var1'] * response['var2'] * response['var3']
+        cr = response['cr']
+        A = response['Afin']
+        S = response['S']
+        result = 2*A/S - cr
         return {'Result': result}
