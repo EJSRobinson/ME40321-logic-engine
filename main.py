@@ -8,6 +8,8 @@ api = Api(app)
 
 
 api.add_resource(ct.ct_1, '/ct/1')
+api.add_resource(ct.ct_2, '/ct/3')
+api.add_resource(ct.ct_2, '/ct/3')
 
 if __name__ == '__main__':
     app.run(debug=False)
