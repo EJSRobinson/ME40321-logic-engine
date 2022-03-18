@@ -13,7 +13,7 @@ class ct_1(Resource):
         A = response['Afin']
         S = response['S']
         result = 2*A/S - cr
-        return {'Result': result}
+        return {'val': result}
 
 
 class ct_2(Resource):
@@ -24,7 +24,7 @@ class ct_2(Resource):
         TEsw = response['TEsw']
         LEsw = response['LEsw']
         result = cr - S*(math.tan(TEsw) + math.tan(LEsw))
-        return {'Result': result}
+        return {'val': result}
 
 
 class ct_3(Resource):
@@ -33,4 +33,4 @@ class ct_3(Resource):
         cr = response['cr']
         TR = response['TR']
         result = cr * TR
-        return {'Result': result}
+        return {'val': result}
