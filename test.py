@@ -1,5 +1,5 @@
 import math
 
-A = math.tan(math.pi / 8)
+A = math.pi
 
 print(A)
