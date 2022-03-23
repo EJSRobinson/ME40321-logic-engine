@@ -3,6 +3,7 @@ import solvers.ct as ct
 import solvers.cr as cr
 import solvers.S as S
 import solvers.AR as AR
+import solvers.TR as TR
 from flask import Flask
 from flask_restful import Api
 
@@ -23,6 +24,9 @@ api.add_resource(S.S_2, '/S/2')
 
 api.add_resource(AR.AR_1, '/AR/1')
 api.add_resource(AR.AR_2, '/AR/2')
+
+api.add_resource(TR.TR_1, '/TR/1')
+api.add_resource(TR.TR_2, '/TR/2')
 
 if __name__ == '__main__':
     app.run(debug=False)
