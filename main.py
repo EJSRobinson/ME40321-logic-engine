@@ -7,6 +7,8 @@ import solvers.TR as TR
 import solvers.Afin as Afin
 import solvers.Cna as Cna
 import solvers.AoA as AoA
+import solvers.Cn as Cn
+import solvers.Ct_ as Ct
 from flask import Flask
 from flask_restful import Api
 
@@ -39,6 +41,10 @@ api.add_resource(Cna.Cna_1, '/Cna/1')
 api.add_resource(Cna.Cna_2, '/Cna/2')
 
 api.add_resource(AoA.AoA_1, '/AoA/1')
+
+api.add_resource(Cn.Cn_1, '/Cn/1')
+
+api.add_resource(Ct.Ct_1, '/Ct/1')
 
 if __name__ == '__main__':
     app.run(debug=False)
