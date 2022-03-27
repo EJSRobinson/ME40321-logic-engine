@@ -1,5 +1,4 @@
-import math
 
-A = math.pi
+import solvers.constants as constants
 
-print(A)
+print(constants.gamma)
