@@ -15,6 +15,7 @@ import solvers.Fl as Fl
 import solvers.Fd as Fd
 import solvers.m as m
 import solvers.mT as mT
+import solvers.N as N
 from flask import Flask
 from flask_restful import Api
 
@@ -64,6 +65,8 @@ api.add_resource(m.m_1, '/m/1')
 api.add_resource(m.m_2, '/m/2')
 
 api.add_resource(mT.mT_1, '/m/1')
+
+api.add_resource(N.N_1, '/N/1')
 
 if __name__ == '__main__':
     app.run(debug=False)
