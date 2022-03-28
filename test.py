@@ -1,4 +1,10 @@
 
 import math
+import solvers.common as common
 
-print(math.e)
+Alt = 10000
+
+
+t = common.densityAtAltiude(Alt)
+
+print(t)

@@ -4,7 +4,7 @@ import math
 
 
 def temperatureAtAltitude(Tsl, alt):
-    ratio = 288 * 1.983 * (alt / 304.8) / 288
+    ratio = (288 - 1.983 * (alt / 304.8)) / 288
     return Tsl * ratio
 
 # Get density at altiude, altiude is in meters
