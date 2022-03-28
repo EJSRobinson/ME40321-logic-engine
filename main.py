@@ -24,6 +24,8 @@ import solvers.Fn as Fn
 import solvers.Ft as Ft
 import solvers.Kn as Kn
 import solvers.Xfin as Xfin
+import solvers.CnaTot as CnaTot
+import solvers.CtaTot as CtaTot
 from flask import Flask
 from flask_restful import Api
 
@@ -93,6 +95,10 @@ api.add_resource(Ft.Ft_1, '/Ft/1')
 api.add_resource(Kn.Kn_1, '/Kn/1')
 
 api.add_resource(Xfin.Xfin_1, '/Xfin/1')
+
+api.add_resource(CnaTot.CnaTot_1, '/CnaTot/1')
+
+api.add_resource(CtaTot.CtaTot_1, '/CtaTot/1')
 
 if __name__ == '__main__':
     app.run(debug=False)
