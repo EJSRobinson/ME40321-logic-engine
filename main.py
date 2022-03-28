@@ -26,6 +26,7 @@ import solvers.Kn as Kn
 import solvers.Xfin as Xfin
 import solvers.CnaTot as CnaTot
 import solvers.CtaTot as CtaTot
+import solvers.RowA as RowA
 from flask import Flask
 from flask_restful import Api
 
@@ -99,6 +100,8 @@ api.add_resource(Xfin.Xfin_1, '/Xfin/1')
 api.add_resource(CnaTot.CnaTot_1, '/CnaTot/1')
 
 api.add_resource(CtaTot.CtaTot_1, '/CtaTot/1')
+
+api.add_resource(RowA.RowA_1, '/RowA/1')
 
 if __name__ == '__main__':
     app.run(debug=False)
