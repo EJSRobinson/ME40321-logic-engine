@@ -23,6 +23,7 @@ import solvers.V as V
 import solvers.Fn as Fn
 import solvers.Ft as Ft
 import solvers.Kn as Kn
+import solvers.Xfin as Xfin
 from flask import Flask
 from flask_restful import Api
 
@@ -90,6 +91,8 @@ api.add_resource(Fn.Fn_1, '/Fn/1')
 api.add_resource(Ft.Ft_1, '/Ft/1')
 
 api.add_resource(Kn.Kn_1, '/Kn/1')
+
+api.add_resource(Xfin.Xfin_1, '/Xfin/1')
 
 if __name__ == '__main__':
     app.run(debug=False)
