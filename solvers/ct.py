@@ -42,5 +42,5 @@ class ct_6(Resource):
         Afin = response['Afin']
         TR = response['TR']
         AR = response['AR']
-        result = 2 * Afin**(1/2) / ((1 + 1/TR) * AR**(1/2))
+        result = (2 * Afin**(1/2)) / ((1 + 1/TR) * AR**(1/2))
         return {'val': result}
