@@ -46,6 +46,7 @@ api.add_resource(cr.cr_6, '/cr/6')
 
 api.add_resource(S.S_1, '/S/1')
 api.add_resource(S.S_2, '/S/2')
+api.add_resource(S.S_5, '/S/5')
 
 api.add_resource(AR.AR_1, '/AR/1')
 api.add_resource(AR.AR_2, '/AR/2')

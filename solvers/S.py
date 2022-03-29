@@ -25,3 +25,12 @@ class S_2(Resource):
         LEsw = response['LEsw']
         result = (cr-ct)/(math.tan(TEsw) + math.tan(LEsw))
         return {'val': result}
+
+
+class S_5(Resource):
+    def post(self):
+        response = request.get_json()
+        Afin = response['Afin']
+        AR = response['AR']
+        result = (AR*Afin)**(1/2)
+        return {'val': result}
