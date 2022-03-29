@@ -1,13 +1,13 @@
 from flask_restful import reqparse, Resource
 from flask import request
-import common as common
-import constants as constants
+import solvers.common as common
+import solvers.constants as constants
 
 parser = reqparse.RequestParser()
 parser.add_argument('vars', type=str)
 
 
-class M_1(Resource):
+class Mach_1(Resource):
     def post(self):
         response = request.get_json()
         V = response['V']

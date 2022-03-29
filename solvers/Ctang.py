@@ -5,7 +5,7 @@ parser = reqparse.RequestParser()
 parser.add_argument('vars', type=str)
 
 
-class Ct_1(Resource):
+class Ctang_1(Resource):
     def post(self):
         response = request.get_json()
         AoA = response['AoA']

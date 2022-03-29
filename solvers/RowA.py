@@ -1,6 +1,6 @@
 from flask_restful import reqparse, Resource
 from flask import request
-import common as common
+import solvers.common as common
 
 parser = reqparse.RequestParser()
 parser.add_argument('vars', type=str)

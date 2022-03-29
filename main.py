@@ -8,7 +8,7 @@ import solvers.Afin as Afin
 import solvers.Cna as Cna
 import solvers.AoA as AoA
 import solvers.Cn as Cn
-import solvers.Ct_ as Ct
+import solvers.Ctang as Ctang
 import solvers.Cl as Cl
 import solvers.Cd as Cd
 import solvers.Fl as Fl
@@ -18,7 +18,7 @@ import solvers.mT as mT
 import solvers.N as N
 import solvers.LEsw as LEsw
 import solvers.TEsw as TEsw
-import solvers.M_ as M
+import solvers.Mach as Mach
 import solvers.V as V
 import solvers.Fn as Fn
 import solvers.Ft as Ft
@@ -62,7 +62,7 @@ api.add_resource(AoA.AoA_1, '/AoA/1')
 
 api.add_resource(Cn.Cn_1, '/Cn/1')
 
-api.add_resource(Ct.Ct_1, '/Ct/1')
+api.add_resource(Ctang.Ctang_1, '/Ctang/1')
 
 api.add_resource(Cl.Cl_1, '/Cl/1')
 
@@ -87,7 +87,7 @@ api.add_resource(TEsw.TEsw_1, '/TEsw/1')
 api.add_resource(TEsw.TEsw_2, '/TEsw/2')
 api.add_resource(TEsw.TEsw_3, '/TEsw/3')
 
-api.add_resource(M.M_1, '/M/1')
+api.add_resource(Mach.Mach_1, '/Mach/1')
 api.add_resource(V.V_1, '/V/1')
 
 api.add_resource(Fn.Fn_1, '/Fn/1')
