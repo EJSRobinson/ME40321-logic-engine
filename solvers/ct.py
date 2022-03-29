@@ -34,3 +34,13 @@ class ct_3(Resource):
         TR = response['TR']
         result = cr * TR
         return {'val': result}
+
+
+class cr_6(Resource):
+    def post(self):
+        response = request.get_json()
+        Afin = response['Afin']
+        TR = response['TR']
+        AR = response['AR']
+        result = 2 * Afin**(1/2) / ((1 + 1/TR) * AR**(1/2))
+        return {'val': result}

@@ -37,6 +37,7 @@ api = Api(app)
 api.add_resource(ct.ct_1, '/ct/1')
 api.add_resource(ct.ct_2, '/ct/2')
 api.add_resource(ct.ct_3, '/ct/3')
+api.add_resource(ct.ct_6, '/ct/6')
 
 api.add_resource(cr.cr_1, '/cr/1')
 api.add_resource(cr.cr_2, '/cr/2')
