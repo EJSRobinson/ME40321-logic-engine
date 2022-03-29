@@ -11,14 +11,14 @@ class Cna_1(Resource):
         response = request.get_json()
         Kn = response['Aref']
         Xfin = response['Xfin']
-        Xcog = response['Xcog']
+        XCog = response['XCog']
         N = response['N']
         CnaComp = response['CnaComp']
         Xcomp = response['Xcomp']
         Aref = response['Aref']
 
         Dref = (4*Aref/math.pi)**(1/2)  # Reference Length
-        Xcp = Xcog + Kn*Dref    # Overall Cp
+        Xcp = XCog + Kn*Dref    # Overall Cp
         CnaTot = CnaComp * (Xcomp - Xcp) / (Xcp - Xfin)  # Single Fin
         result = CnaTot / N
         return {'val': result}

@@ -13,9 +13,9 @@ class Kn_1(Resource):
         Xfin = response['Xfin']
         CnaComp = response['CnaComp']
         Xcomp = response['Xcomp']
-        Xcog = response['Xcog']
+        XCog = response['XCog']
         Aref = response['Aref']
         Dref = (4*Aref/math.pi)**(1/2)
         Xall = (1/(CnaTot + CnaComp))*(Xfin * CnaTot + Xcomp * CnaComp)
-        result = (Xall - Xcog)/Dref
+        result = (Xall - XCog)/Dref
         return {'val': result}

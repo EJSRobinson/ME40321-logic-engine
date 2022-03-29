@@ -13,7 +13,7 @@ class Xfin_1(Resource):
         Kn = response['Kn']
         CnaComp = response['CnaComp']
         Xcomp = response['Xcomp']
-        Xcog = response['Xcog']
+        XCog = response['XCog']
         Aref = response['Aref']
         Dref = (4*Aref/math.pi)**(1/2)
         Xcp = Kn * Dref + Xcog
