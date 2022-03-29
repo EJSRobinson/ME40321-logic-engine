@@ -5,7 +5,7 @@ Dref = 0.15
 Cna = 3.251
 TR = 0.5
 AR = 2
-TEsw = 0
+TEsw = 0.4
 Afin = 0.05
 
 err = 100
@@ -22,4 +22,4 @@ while err > 0.000001:
     Afin = AfinNew
 
 print('Final Afin: '+str(Afin))
-print('Final Cr: '+str(cr))
+print('--')

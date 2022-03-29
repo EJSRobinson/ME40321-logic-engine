@@ -45,6 +45,9 @@ class Afin_4(Resource):
         TEsw = response['TEsw']
         Dref = (4*Aref / math.pi)**(1/2)
 
+        Afin = 0.05
+        err = 100
+
         while err > 0.000001:
             cr = 2 * Afin**(1/2) / ((1+TR) * AR**(1/2))
             LEsw = math.atan(cr*(1-TR)/((Afin * AR)**(1/2)) - math.tan(TEsw))
@@ -70,6 +73,9 @@ class Afin_5(Resource):
         AR = response['AR']
         LEsw = response['LEsw']
         Dref = (4*Aref / math.pi)**(1/2)
+
+        Afin = 0.05
+        err = 100
 
         while err > 0.000001:
             cr = 2 * Afin**(1/2) / ((1+TR) * AR**(1/2))
