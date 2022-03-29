@@ -57,6 +57,7 @@ api.add_resource(Afin.Afin_3, '/Afin/3')
 
 api.add_resource(Cna.Cna_1, '/Cna/1')
 api.add_resource(Cna.Cna_2, '/Cna/2')
+api.add_resource(Cna.Cna_3, '/Cna/3')
 
 api.add_resource(AoA.AoA_1, '/AoA/1')
 

@@ -41,3 +41,12 @@ class Cna_2(Resource):
         result = (1 + Dref/(S + Dref)) * (4*((S/Dref)**2)) / \
             (1 + (1 + (2 * Lf / (cr + ct))**2)**(1/2))
         return {'val': result}
+
+
+class Cna_3(Resource):
+    def post(self):
+        response = request.get_json()
+        Cn = response['Cn']
+        AoA = response['AoA']
+        result = Cn / AoA
+        return {'val': result}
