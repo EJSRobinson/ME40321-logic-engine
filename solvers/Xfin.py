@@ -16,6 +16,6 @@ class Xfin_1(Resource):
         XCog = response['XCog']
         Aref = response['Aref']
         Dref = (4*Aref/math.pi)**(1/2)
-        Xcp = Kn * Dref + Xcog
+        Xcp = Kn * Dref + XCog
         result = (1/CnaTot) * (Xcp*(CnaComp + CnaTot) - Xcomp * CnaComp)
         return {'val': result}
