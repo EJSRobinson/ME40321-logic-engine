@@ -12,7 +12,7 @@ class S_1(Resource):
         ct = response['ct']
         cr = response['cr']
         A = response['Afin']
-        result = 2*A/(cr - ct)
+        result = 2*A/(cr + ct)
         return {'val': result}
 
 

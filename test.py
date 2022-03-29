@@ -1,11 +1,12 @@
 
 import math
 
-Dref = 0.15
-Cna = 3.251
+Aref = 0.0177
+Dref = (4*Aref/math.pi)**(1/2)
+Cna = 1.619
 TR = 0.5
 AR = 2
-TEsw = 0.4
+TEsw = 0
 Afin = 0.05
 
 err = 100
