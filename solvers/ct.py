@@ -36,7 +36,7 @@ class ct_3(Resource):
         return {'val': result}
 
 
-class cr_6(Resource):
+class ct_6(Resource):
     def post(self):
         response = request.get_json()
         Afin = response['Afin']
