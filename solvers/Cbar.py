@@ -9,6 +9,6 @@ class Cbar_1(Resource):
     def post(self):
         response = request.get_json()
         cr = response['cr']
-        ct = response['t']
+        ct = response['ct']
         result = (2/3)*((cr ** 2 + ct ** 2 + cr*ct)/(cr + ct))
         return {'val': result}

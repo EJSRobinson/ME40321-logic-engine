@@ -83,7 +83,7 @@ api.add_resource(Fd.Fd_1, '/Fd/1')
 api.add_resource(m.m_1, '/m/1')
 api.add_resource(m.m_2, '/m/2')
 
-api.add_resource(mT.mT_1, '/m/1')
+api.add_resource(mT.mT_1, '/mT/1')
 
 api.add_resource(N.N_1, '/N/1')
 

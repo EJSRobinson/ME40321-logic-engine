@@ -74,8 +74,9 @@ class Ctang_1(Resource):
 
         # LE Drag
 
+        Cd_Cyl = (1 - M**2)**(-0.417) - 1
         if (Arf == 'flatPlate'):
-            Cd_Cyl = (1 - M**2)**(-0.417) - 1
+
             Cd_LE = 0.85 * (1 + (M**2)/4 + (M**4)/40)
         elif (Arf == 'flatPlateF'):
             Cd_LE = 2 * (S * rle / Aref) * (math.cos(LEsw))**2 * Cd_Cyl
@@ -91,7 +92,7 @@ class Ctang_1(Resource):
         Kte = ((0.2232 + 4.018*CfcStar)**2) / \
             (((cr/t) * CfcStar)**(2/3)) + (math.cos(Msw))**2
 
-        Afin_TE = S * math.cos(TEsw) + Afin * math.sin(AoA)
+        Afin_TE = S * math.cos(TEsw) * t + Afin * math.sin(AoA)
 
         Cd_TE = 0.135 * (Afin_TE / Aref) / ((Cfb**(1/3)) *
                                             ((Kte - (M**2) * (math.cos(Msw))**2)**(1/2)))
@@ -109,4 +110,11 @@ class Ctang_1(Resource):
         Cd_v = Cn**2 * (1 + delt) / (math.pi * AR)
 
         Cd = Cd_sf + Cd_LE + Cd_TE + Cd_thick + Cd_v
-        return Cd
+
+        print(Cd_sf)
+        print(Cd_LE)
+        print(Cd_TE)
+        print(Cd_thick)
+        print(Cd_v)
+
+        return {'val': Cd}

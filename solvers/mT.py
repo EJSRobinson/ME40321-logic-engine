@@ -8,7 +8,7 @@ parser.add_argument('vars', type=str)
 class mT_1(Resource):
     def post(self):
         response = request.get_json()
-        m = response['mT']
+        m = response['m']
         N = response['N']
         result = m * N
         return {'val': result}
