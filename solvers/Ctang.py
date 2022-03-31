@@ -26,8 +26,9 @@ class Ctang_1(Resource):
         AoA = response['AoA']
         Rs = response['Mat']
         Arf = response['Arf']
-        AR = response['AR']
         Cn = response['Cn']
+
+        AR = S**2 / Afin
 
         # Velocity
         Talt = common.temperatureAtAltitude(Ta, Alt)
