@@ -28,6 +28,7 @@ import solvers.CnaTot as CnaTot
 import solvers.CtaTot as CtaTot
 import solvers.RowA as RowA
 import solvers.Cbar as Cbar
+import solvers.Msw as Msw
 from flask import Flask
 from flask_restful import Api
 
@@ -111,6 +112,8 @@ api.add_resource(CtaTot.CtaTot_1, '/CtaTot/1')
 api.add_resource(RowA.RowA_1, '/RowA/1')
 
 api.add_resource(Cbar.Cbar_1, '/Cbar/1')
+
+api.add_resource(Msw.Msw_1, '/Msw/1')
 
 if __name__ == '__main__':
     app.run(debug=False)

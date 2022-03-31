@@ -4,15 +4,14 @@ import math
 
 S = 0.01
 cr = 0.01
-LEsw = 0.524
-TEsw = 0
+LEsw = 0.6
 
 
-Ws = math.tan(LEsw) + math.tan(TEsw)
-ct = cr - S*Ws
+ct = 0.007
 Afin = 0.5 * (cr + ct) * S
 
-c_ = (2/3)*((cr ** 2 + ct ** 2 + cr*ct)/(cr + ct))
+Xsw = 0.5 * (ct - cr) + S*math.tan(LEsw)
 
-# v = (2/Afin) * S * ((Ws * S**2 / 3) - (cr * Ws * S) + (cr**2))
-print(c_)
+result = math.pi/2 - math.atan(S/Xsw)
+
+print(result)
