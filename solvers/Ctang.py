@@ -11,15 +11,6 @@ parser.add_argument('vars', type=str)
 class Ctang_1(Resource):
     def post(self):
         response = request.get_json()
-        AoA = response['AoA']
-        Cna = response['Cta']
-        result = AoA * Cna
-        return {'val': result}
-
-
-class Ctang_2(Resource):
-    def post(self):
-        response = request.get_json()
         Aref = response['Aref']
         Ta = response['Ta']
         Alt = response['Alt']
