@@ -1,6 +1,6 @@
 from flask_restful import reqparse, Resource
 from flask import request
-import math
+import common as common
 
 parser = reqparse.RequestParser()
 parser.add_argument('vars', type=str)
@@ -13,6 +13,5 @@ class Msw_1(Resource):
         ct = response['ct']
         S = response['S']
         LEsw = response['LEsw']
-        Xsw = 0.5 * (ct - cr) + S*math.tan(LEsw)
-        result = math.pi/2 - math.atan(S/Xsw)
+        result = common.calcMsw(ct, cr, S, LEsw)
         return {'val': result}

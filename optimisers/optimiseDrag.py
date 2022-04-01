@@ -43,10 +43,8 @@ class optimiseDrag(Resource):
                         LEsw = math.atan(
                             (cr[j]-ct[k])/S[i] - math.tan(TEsw[l]))
                         Afin = 0.5 * (cr[j] + ct[k]) * S[i]
-                        Cbar = (2/3)*((cr[j] ** 2 + ct[k] **
-                                       2 + cr[j] * ct[k])/(cr[j] + ct[k]))
-                        Xsw = 0.5 * (ct[k] - cr[j]) + S[i]*math.tan(LEsw)
-                        Msw = math.pi/2 - math.atan(S[i]/Xsw)
+                        Cbar = common.calcCbar(cr, ct)
+                        Msw = common.calcMsw(ct, cr, S, LEsw)
                         results[i][j][k][l] = common.calcDrag(
                             S[i], cr[j], TEsw[l], t, LEsw, Afin, Cbar, Msw, Aref, Ta, Alt, M, AoA, Rs, Arf, Cn)
 

@@ -1,23 +1,44 @@
-import solvers.common as common
 import solvers.constants as constants
 import math
+import numpy as np
+
+
+def temperatureAtAltitude(Tsl, alt):
+    ratio = (288 - 1.983 * (alt / 304.8)) / 288
+    return Tsl * ratio
+
+# Get density at altiude, altiude is in meters
+
+
+def densityAtAltiude(alt):
+    ratio = math.e**(-0.0296 * alt / 304.8)
+    base = 1.225
+    return base * ratio
+
+
+def dynamicViscosity(Tsl, alt):
+    t = temperatureAtAltitude(Tsl, alt)
+    temps = [175, 200, 225, 250, 275, 300, 325, 350]
+    viscs = [1.182 * 10**(-5), 1.329 * 10**(-5), 1.467 * 10**(-5), 1.599 * 10**(-5), 1.725 * 10 **
+             (-5), 1.846 * 10**(-5), 1.962 * 10**(-5), 2.075 * 10**(-5)]
+    return np.interp(t, temps, viscs)
 
 
 def calcDrag(S, cr, TEsw, t, LEsw, Afin, Cbar, Msw, Aref, Ta, Alt, M, AoA, Rs, Arf, Cn):
     AR = S**2 / Afin
 
     # Velocity
-    Talt = common.temperatureAtAltitude(Ta, Alt)
+    Talt = temperatureAtAltitude(Ta, Alt)
     a = (constants.gamma * constants.R * Talt)**(1/2)
     V = M * a
 
     Dref = (4 * Aref / math.pi)**(1/2)
 
     # Viscosity
-    visc = common.dynamicViscosity(Ta, Alt)
+    visc = dynamicViscosity(Ta, Alt)
 
     # Desnity
-    RowA = common.densityAtAltiude(Alt)
+    RowA = densityAtAltiude(Alt)
 
     # Reynolds No.
     Re = RowA * V * Dref / visc
@@ -87,3 +108,14 @@ def calcDrag(S, cr, TEsw, t, LEsw, Afin, Cbar, Msw, Aref, Ta, Alt, M, AoA, Rs, A
 
     Cd = Cd_sf + Cd_LE + Cd_TE + Cd_thick + Cd_v
     return Cd
+
+
+def calcMsw(ct, cr, S, LEsw):
+    Xsw = 0.5 * (ct - cr) + S*math.tan(LEsw)
+    result = math.pi/2 - math.atan(S/Xsw)
+    return result
+
+
+def calcCbar(cr, ct):
+    result = (2/3)*((cr ** 2 + ct ** 2 + cr*ct)/(cr + ct))
+    return result
