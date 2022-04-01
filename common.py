@@ -117,5 +117,5 @@ def calcMsw(ct, cr, S, LEsw):
 
 
 def calcCbar(cr, ct):
-    result = (2/3)*((cr ** 2 + ct ** 2 + cr*ct)/(cr + ct))
+    result = ((2/3)*((cr**2 + ct**2 + cr*ct)/(cr + ct)))
     return result
