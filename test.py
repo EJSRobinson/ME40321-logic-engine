@@ -1,17 +1,26 @@
 
-import solvers.common as common
-import math
-
-S = 0.01
-cr = 0.01
-LEsw = 0.6
+import solvers.mT as test
+import numpy as np
 
 
-ct = 0.007
-Afin = 0.5 * (cr + ct) * S
+def f(var1, var2):
+    return (var1**2 - var2**2)/(var1 + var2)
 
-Xsw = 0.5 * (ct - cr) + S*math.tan(LEsw)
 
-result = math.pi/2 - math.atan(S/Xsw)
+max1 = 10
+min1 = 1
 
-print(result)
+max2 = 45
+min1 = -5
+
+var1 = np.arange(min1, max1, 0.01)
+var2 = np.arange(min1, max1, 0.01)
+
+results = np.zeros((len(var1), len(var2)))
+
+for i in range(len(var1)):
+    for j in range(len(var2)):
+        results[i][j] = f(var1[i], var2[j])
+
+ind = np.unravel_index(np.argmax(results), results.shape)
+print(results[ind[0]][ind[1]])
