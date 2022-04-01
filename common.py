@@ -1,4 +1,4 @@
-import solvers.constants as constants
+import constants as constants
 import math
 import numpy as np
 
