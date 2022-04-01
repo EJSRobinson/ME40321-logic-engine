@@ -34,6 +34,16 @@ class optimiseDrag(Resource):
         cr = np.arange(cr_min, cr_max, 0.0005)
         ct = np.arange(ct_min, ct_max, 0.0005)
         TEsw = np.arange(TEsw_min, TEsw_max, math.pi / 180)
+
+        if (len(S) == 0):
+            S = np.array([S_min])
+        if (len(cr) == 0):
+            cr = np.array([cr])
+        if (len(ct) == 0):
+            ct = np.array([ct])
+        if (len(TEsw) == 0):
+            TEsw = np.array([TEsw_min])
+
         results = np.zeros((len(S), len(cr), len(ct), len(TEsw)))
 
         for i in range(len(S)):
@@ -49,8 +59,8 @@ class optimiseDrag(Resource):
                             S[i], cr[j], TEsw[l], t, LEsw, Afin, Cbar, Msw, Aref, Ta, Alt, M, AoA, Rs, Arf, Cn)
 
         ind = np.unravel_index(np.argmax(results), results.shape)
-        S_final = S[ind[0]]
-        cr_final = cr[ind[1]]
-        ct_final = ct[ind[2]]
-        TEsw_final = TEsw[ind[3]]
+        S_final = float(S[ind[0]])
+        cr_final = float(cr[ind[1]])
+        ct_final = float(ct[ind[2]])
+        TEsw_final = float(TEsw[ind[3]])
         return {'S': S_final, 'cr': cr_final, 'ct': ct_final, 'TEsw': TEsw_final}
