@@ -99,13 +99,19 @@ def calcDrag(S, cr, TEsw, t, LEsw, Afin, Cbar, Msw, Aref, Ta, Alt, M, AoA, Rs, A
     Cdtt = 1.15*((t/cr)**(5/3)) * (1.61 + zi -
                                    ((zi - 1.43)**2 + 0.578)**(1/2))
     Kt = (((Cdtt/CfcStar) * (Aref / Afin) - 4*(t/cr)*math.cos(Msw)) /
-          (120 * ((t/cr)**4) * (math.cos(Msw))**2)) + (math.cos(Msw))**2
+          (120 * ((t/cr)**4) * (math.cos(Msw))**2))**(2/3) + (math.cos(Msw))**2
+    
+    print(Kt)
+
     Cd_thick = 4 * Cfc * (Afin / Aref) * ((t/cr) * math.cos(Msw)) + (
         40 * ((t/cr)**4) * (math.cos(Msw))**2)/((Kt - (M * math.cos(Msw))**2)**(3/2))
+    
+    print(Cd_thick)
 
     delt = 0
     Cd_v = Cn**2 * (1 + delt) / (math.pi * AR)
 
+    Cd_thick = 0
     Cd = Cd_sf + Cd_LE + Cd_TE + Cd_thick + Cd_v
     return Cd
 

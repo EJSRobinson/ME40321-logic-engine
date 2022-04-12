@@ -9,7 +9,7 @@ parser.add_argument('vars', type=str)
 class Cna_1(Resource):
     def post(self):
         response = request.get_json()
-        Kn = response['Aref']
+        Kn = response['Kn']
         Xfin = response['Xfin']
         XCog = response['XCog']
         N = response['N']
@@ -22,6 +22,7 @@ class Cna_1(Resource):
         CnaTot = CnaComp * (Xcomp - Xcp) / (Xcp - Xfin)  # Single Fin
         result = CnaTot / N
         return {'val': result}
+
 
 
 class Cna_2(Resource):

@@ -70,6 +70,7 @@ api.add_resource(Cna.Cna_3, '/Cna/3')
 api.add_resource(AoA.AoA_1, '/AoA/1')
 
 api.add_resource(Cn.Cn_1, '/Cn/1')
+api.add_resource(Cn.Cn_2, '/Cn/2')
 
 api.add_resource(Ctang.Ctang_1, '/Ctang/1')
 
