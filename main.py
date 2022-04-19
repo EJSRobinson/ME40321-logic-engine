@@ -30,6 +30,7 @@ import solvers.RowA as RowA
 import solvers.Cbar as Cbar
 import solvers.Msw as Msw
 import optimisers.optimiseDrag as optDrag
+import exporters as exporters
 from flask import Flask
 from flask_restful import Api
 
@@ -118,6 +119,22 @@ api.add_resource(Cbar.Cbar_1, '/Cbar/1')
 api.add_resource(Msw.Msw_1, '/Msw/1')
 
 api.add_resource(optDrag.optimiseDrag, '/optimiseDrag')
+
+api.add_resource(exporters.Fn_V, '/Fn_V')
+api.add_resource(exporters.Fn_M, '/Fn_M')
+api.add_resource(exporters.Fn_AoA, '/Fn_AoA')
+api.add_resource(exporters.Fn_S, '/Fn_S')
+api.add_resource(exporters.Fn_BM, '/Fn_BM')
+api.add_resource(exporters.Fn_Ang, '/Fn_Ang')
+api.add_resource(exporters.Fn_Defl, '/Fn_Defl')
+
+api.add_resource(exporters.Fn_V_data, '/Fn_V_data')
+api.add_resource(exporters.Fn_M_data, '/Fn_M_data')
+api.add_resource(exporters.Fn_AoA_data, '/Fn_AoA_data')
+api.add_resource(exporters.Fn_S_data, '/Fn_S_data')
+api.add_resource(exporters.Fn_BM_data, '/Fn_BM_data')
+api.add_resource(exporters.Fn_Ang_data, '/Fn_Ang_data')
+api.add_resource(exporters.Fn_Defl_data, '/Fn_Defl_data')
 
 if __name__ == '__main__':
     app.run(debug=False)
