@@ -15,6 +15,13 @@ def densityAtAltiude(alt):
     base = 1.225
     return base * ratio
 
+def pressureAtAltiude(Tsl, alt):
+    T = temperatureAtAltitude(Tsl, alt)
+    T_imp = 1.8*(T-273) + 32
+    P_imp = 2116 * ((T_imp + 459.7)/518.6)**5.256
+    P = 47.88 * P_imp
+    return P
+
 
 def dynamicViscosity(Tsl, alt):
     t = temperatureAtAltitude(Tsl, alt)
