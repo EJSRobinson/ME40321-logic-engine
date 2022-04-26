@@ -49,6 +49,15 @@ def calcBendingMoment(cr, Fn, Afin, TEsw, LEsw, S ,steps):
         bm.append(m_tot - result)
     return np.asarray(bm)
 
+def calcStress(cr, Fn, Afin, TEsw, LEsw, S, t ,steps):
+    bm = calcBendingMoment(cr, Fn, Afin, TEsw, LEsw, S ,steps)
+    span = calcSpanVector(S, steps)
+    stress = []
+    for i in range(len(bm)):
+        result = bm[i] * (t/2) / I(c(LEsw, TEsw, cr, span[i]), t)
+        stress.append(result)
+    return np.asarray(stress)
+
 def calcDeflectionAngle(cr, Fn, Afin, TEsw, LEsw, S ,steps, E, t):
     bm = calcBendingMoment(cr, Fn, Afin, TEsw, LEsw, S ,steps)
     span = calcSpanVector(S, steps)
@@ -94,6 +103,7 @@ class Fn_V(Resource):
         plt.xlabel('Velocity (m/s)')
         plt.ylabel('Normal Force (N)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class Fn_M(Resource):
@@ -121,6 +131,7 @@ class Fn_M(Resource):
         plt.xlabel('Mach Number')
         plt.ylabel('Normal Force (N)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class Fn_AoA(Resource):
@@ -147,6 +158,7 @@ class Fn_AoA(Resource):
         plt.xlabel('Angle of Attack (°)')
         plt.ylabel('Normal Force (N)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class Fn_S(Resource):
@@ -165,6 +177,7 @@ class Fn_S(Resource):
         plt.xlabel('Span (mm)')
         plt.ylabel('Normal Force (N)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class BM_S(Resource):
@@ -183,6 +196,7 @@ class BM_S(Resource):
         plt.xlabel('Span (mm)')
         plt.ylabel('Bending Moment (Nm)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class Ang_S(Resource):
@@ -203,6 +217,7 @@ class Ang_S(Resource):
         plt.xlabel('Span (mm)')
         plt.ylabel('Deflection Angle (°)')
         plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 class Defl_S(Resource):
@@ -223,6 +238,27 @@ class Defl_S(Resource):
         plt.xlabel('Span (mm)')
         plt.ylabel('Deflection (mm)')
         plt.savefig(f, format = "png")
+        plt.clf()
+        return Response(f.getvalue(), mimetype='image/png')
+
+class Stress_S(Resource):
+    def post(self):
+        response = request.get_json()
+        f = io.BytesIO()
+        cr = response['cr']
+        Fn = response['Fn']
+        Afin = response['Afin']
+        LEsw = response['LEsw']
+        TEsw = response['TEsw']
+        t = response['t']
+        S = response['S']
+        steps = 100
+        plt.clf()
+        plt.plot(calcSpanVector(S, steps)*1000, calcStress(cr, Fn, Afin, TEsw, LEsw, S, t ,steps))
+        plt.xlabel('Span (mm)')
+        plt.ylabel('Stress (Pa)')
+        plt.savefig(f, format = "png")
+        plt.clf()
         return Response(f.getvalue(), mimetype='image/png')
 
 # ---------------------
@@ -240,7 +276,7 @@ class Fn_V_data(Resource):
         V = np.arange(Vmin, Vmax, 1)
         Fn_SL = 0.5 * Cn * RowA_SL * Aref * V**2
         Fn_Alt = 0.5 * Cn * RowA_Alt * Aref * V**2
-        return {'val': [V.tolist(), Fn_SL, Fn_Alt]}
+        return {'val': [V.tolist(), Fn_SL.tolist(), Fn_Alt.tolist()]}
 
 class Fn_M_data(Resource):
     def post(self):
@@ -259,7 +295,7 @@ class Fn_M_data(Resource):
         Fn_SL = 0.5 * Cn * RowA_SL * Aref * (M * SoS_SL)**2
         SoS_Alt = (constants.gamma * constants.R * T_Alt)**(1/2)
         Fn_Alt = 0.5 * Cn * RowA_Alt * Aref * (M * SoS_Alt)**2
-        return {'val': [M.tolist(), Fn_SL, Fn_Alt]}
+        return {'val': [M.tolist(), Fn_SL.tolist(), Fn_Alt.tolist()]}
 
 class Fn_AoA_data(Resource):
     def post(self):
@@ -277,7 +313,7 @@ class Fn_AoA_data(Resource):
         Fn_SL = 0.5 * Cn * RowA_SL * Aref * V**2
         Fn_Alt = 0.5 * Cn * RowA_Alt * Aref * V**2
         AoA = AoA * 180 / math.pi
-        return {'val': [AoA.tolist(), Fn_SL, Fn_Alt]}
+        return {'val': [AoA.tolist(), Fn_SL.tolist(), Fn_Alt.tolist()]}
 
 class Fn_S_data(Resource):
     def post(self):
@@ -330,3 +366,16 @@ class Defl_S_data(Resource):
         S = response['S']
         steps = 100
         return {'val': [calcSpanVector(S, steps).tolist(), (calcDeflection(cr, Fn, Afin, TEsw, LEsw, S ,steps, E, t) * 1000).tolist()]}
+
+class Stress_S_data(Resource):
+    def post(self):
+        response = request.get_json()
+        cr = response['cr']
+        Fn = response['Fn']
+        Afin = response['Afin']
+        LEsw = response['LEsw']
+        TEsw = response['TEsw']
+        t = response['t']
+        S = response['S']
+        steps = 100
+        return {'val': [calcSpanVector(S, steps).tolist(), calcStress(cr, Fn, Afin, TEsw, LEsw, S, t ,steps).tolist()]}

@@ -127,6 +127,7 @@ api.add_resource(exporters.Fn_S, '/Fn_S')
 api.add_resource(exporters.BM_S, '/BM_S')
 api.add_resource(exporters.Ang_S, '/Ang_S')
 api.add_resource(exporters.Defl_S, '/Defl_S')
+api.add_resource(exporters.Stress_S, '/Stress_S')
 
 api.add_resource(exporters.Fn_V_data, '/Fn_V_data')
 api.add_resource(exporters.Fn_M_data, '/Fn_M_data')
@@ -135,6 +136,7 @@ api.add_resource(exporters.Fn_S_data, '/Fn_S_data')
 api.add_resource(exporters.BM_S_data, '/BM_S_data')
 api.add_resource(exporters.Ang_S_data, '/Ang_S_data')
 api.add_resource(exporters.Defl_S_data, '/Defl_S_data')
+api.add_resource(exporters.Stress_S_data, '/Stress_S_data')
 
 if __name__ == '__main__':
     app.run(debug=False)
