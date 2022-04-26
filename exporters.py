@@ -170,7 +170,7 @@ class Fn_S(Resource):
         plt.savefig(f, format = "png")
         return Response(f.getvalue(), mimetype='image/png')
 
-class Fn_BM(Resource):
+class BM_S(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
@@ -188,7 +188,7 @@ class Fn_BM(Resource):
         plt.savefig(f, format = "png")
         return Response(f.getvalue(), mimetype='image/png')
 
-class Fn_Ang(Resource):
+class Ang_S(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
@@ -208,7 +208,7 @@ class Fn_Ang(Resource):
         plt.savefig(f, format = "png")
         return Response(f.getvalue(), mimetype='image/png')
 
-class Fn_Defl(Resource):
+class Defl_S(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
@@ -298,7 +298,7 @@ class Fn_S_data(Resource):
         steps = 100
         return {'val': [calcSpanVector(S, steps), calcShearForce(cr, Fn, Afin, TEsw, LEsw, S ,steps)]}
 
-class Fn_BM_data(Resource):
+class BM_S_data(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
@@ -311,7 +311,7 @@ class Fn_BM_data(Resource):
         steps = 100
         return {'val': [calcSpanVector(S, steps), calcBendingMoment(cr, Fn, Afin, TEsw, LEsw, S ,steps)]}
 
-class Fn_Ang_data(Resource):
+class Ang_S_data(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
@@ -326,7 +326,7 @@ class Fn_Ang_data(Resource):
         steps = 300
         return {'val': [calcSpanVector(S, steps), calcDeflectionAngle(cr, Fn, Afin, TEsw, LEsw, S ,steps, E, t) * (180 / math.pi)]}
 
-class Fn_Defl_data(Resource):
+class Defl_S_data(Resource):
     def post(self):
         response = request.get_json()
         f = io.BytesIO()
