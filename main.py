@@ -32,6 +32,7 @@ import solvers.Msw as Msw
 import solvers.Sigma as Sigma
 import solvers.Aref as Aref
 import solvers.Dref as Dref
+import solvers.defl as defl
 import optimisers.optimiseDrag as optDrag
 import exporters as exporters
 from flask import Flask
@@ -125,6 +126,8 @@ api.add_resource(Sigma.Sigma_1, '/Sigma/1')
 
 api.add_resource(Aref.Aref_1, '/Aref/1')
 api.add_resource(Dref.Dref_1, '/Dref/1')
+
+api.add_resource(defl.defl_1, '/defl/1')
 
 api.add_resource(optDrag.optimiseDrag, '/optimiseDrag')
 
