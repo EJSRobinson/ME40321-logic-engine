@@ -37,6 +37,7 @@ import solvers.Vcr as Vcr
 import solvers.C1 as C1
 import solvers.Wn as Wn
 import solvers.Zeta as Zeta
+import solvers.Tp as Tp
 import optimisers.optimiseDrag as optDrag
 import exporters as exporters
 from flask import Flask
@@ -138,6 +139,7 @@ api.add_resource(Vcr.Vcr_1, '/Vcr/1')
 api.add_resource(C1.C1_1, '/C1/1')
 api.add_resource(Wn.Wn_1, '/Wn/1')
 api.add_resource(Zeta.Zeta_1, '/Zeta/1')
+api.add_resource(Tp.Tp_1, '/Tp/1')
 
 api.add_resource(optDrag.optimiseDrag, '/optimiseDrag')
 
